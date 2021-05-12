@@ -79,6 +79,7 @@ module.exports.login = async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
+        profile_pic:user.profile_pic
       },
       process.env.token_key,
       (err, token) => {

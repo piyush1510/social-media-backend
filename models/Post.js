@@ -1,10 +1,10 @@
 const db = require('../utils/db');
 
-export default class Post {
-  constructor(title, caption, img_link, user_id) {
+class Post {
+  constructor(title, content, image_link, user_id) {
     this.title = title;
-    this.caption = caption;
-    this.img_link = img_link;
+    this.content = content;
+    this.image_link = image_link;
     this.user_id = user_id;
   }
   static getAll() {
@@ -16,12 +16,13 @@ export default class Post {
   save() {
     return db.execute(
         `   insert into posts
-            (title,caption,img_link,user_id)
+            (title,content,image_link,user_id)
             values (?,?,?,?)`,
-      [this.title, this.caption, this.img_link, this.user_id]
+      [this.title, this.content, this.image_link, this.user_id]
     );
   }
   remove(id){
       return db.execute("delete from users where id = ?",[id])
   }
 }
+module.exports=Post
