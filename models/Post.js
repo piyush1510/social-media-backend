@@ -21,8 +21,8 @@ class Post {
       [this.title, this.content, this.image_link, this.user_id]
     );
   }
-  remove(id){
-      return db.execute("delete from users where id = ?",[id])
+  remove(id,user_id){
+      return db.execute("delete from posts where id = ? and user_id = ?",[id,user_id])
   }
 }
 module.exports=Post
