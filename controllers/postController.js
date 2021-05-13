@@ -33,7 +33,6 @@ module.exports.create = (req, res) => {
 module.exports.getAll = (req, res) => {
   Post.getAll()
     .then(([data, fields]) => {
-      console.log(req.user, data);
       res.json({user: req.user, posts: data});
     })
     .catch((err) => {
