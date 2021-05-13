@@ -13,6 +13,7 @@ class Post {
        ,title
        ,content
        ,image_link
+       ,created_on
        ,name
        ,profile_pic
     FROM posts
