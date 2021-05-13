@@ -18,6 +18,7 @@ class Post {
     FROM posts
     JOIN users
     ON user_id=users.id
+    order by id desc
     `);
   }
   static getOne(id) {
@@ -27,7 +28,7 @@ class Post {
     return db.execute(
       `   insert into posts
             (title,content,image_link,user_id)
-            values (?,?,?,?)`,
+            values (?,?,?,?)`
       [this.title, this.content, this.image_link, this.user_id]
     );
   }
