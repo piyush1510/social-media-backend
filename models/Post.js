@@ -26,17 +26,14 @@ class Post {
   }
   save() {
     return db.execute(
-      `   insert into posts
+        `   insert into posts
             (title,content,image_link,user_id)
-            values (?,?,?,?)`
+            values (?,?,?,?)`,
       [this.title, this.content, this.image_link, this.user_id]
     );
   }
-  remove(id, user_id) {
-    return db.execute('delete from posts where id = ? and user_id = ?', [
-      id,
-      user_id,
-    ]);
+  remove(id,user_id){
+      return db.execute("delete from posts where id = ? and user_id = ?",[id,user_id])
   }
 }
-module.exports = Post;
+module.exports=Post
